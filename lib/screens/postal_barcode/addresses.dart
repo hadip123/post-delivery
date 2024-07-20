@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_osm_plugin/flutter_osm_plugin.dart';
 import 'package:post_delivery/components/postal_barcode/address_chooser.dart';
 import 'package:post_delivery/components/universal/top_bar.dart';
 import 'package:post_delivery/config/colors.dart';

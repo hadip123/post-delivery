@@ -2,7 +2,6 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:image_picker/image_picker.dart';
 import 'package:numberpicker/numberpicker.dart';
 import 'package:post_delivery/components/universal/top_bar.dart';
 import 'package:post_delivery/config/colors.dart';
@@ -71,7 +70,6 @@ class _PostalBarcodeDetailsState extends State<PostalBarcodeDetails> {
     );
   }
 
-  XFile? pickedImage;
   Widget buildImageField() {
     return Column(
       children: [
@@ -91,14 +89,9 @@ class _PostalBarcodeDetailsState extends State<PostalBarcodeDetails> {
                   borderRadius: BorderRadius.circular(kRoundness)),
               child: Center(
                 child: Row(mainAxisSize: MainAxisSize.min, children: [
-                  pickedImage == null
-                      ? const Icon(Icons.camera, color: kPrimary)
-                      : Image.file(
-                          File(pickedImage?.path ?? ''),
-                          width: 20,
-                        ),
+                  const Icon(Icons.camera, color: kPrimary),
                   const SizedBox(width: 5),
-                  Text(pickedImage == null ? 'انتخاب از گالری' : 'انتخاب شده',
+                  Text('انتخاب از گالری',
                       style: const TextStyle(
                           fontWeight: FontWeight.bold, color: kPrimary))
                 ]),
@@ -108,21 +101,7 @@ class _PostalBarcodeDetailsState extends State<PostalBarcodeDetails> {
     );
   }
 
-  void onPickImageTap() async {
-    if (pickedImage != null) {
-      setState(() {
-        pickedImage = null;
-      });
-      return;
-    }
-    final ImagePicker imagePicker = ImagePicker();
-    final XFile? image =
-        await imagePicker.pickImage(source: ImageSource.gallery);
-
-    setState(() {
-      pickedImage = image;
-    });
-  }
+  void onPickImageTap() async {}
 
   bool hasInsurance = false;
   Widget buildInsuranceField() => Row(
