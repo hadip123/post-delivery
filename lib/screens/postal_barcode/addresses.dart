@@ -13,14 +13,6 @@ class PostalBarcodeAddresses extends StatefulWidget {
 }
 
 class _PostalBarcodeAddressesState extends State<PostalBarcodeAddresses> {
-  final MapController mapController = MapController(
-      initPosition: GeoPoint(latitude: 47.4358055, longitude: 8.4737324),
-      areaLimit: BoundingBox(
-        east: 10.4922941,
-        north: 47.8084648,
-        south: 45.817995,
-        west: 5.9559113,
-      ));
   @override
   Widget build(BuildContext context) {
     return Directionality(
@@ -35,9 +27,7 @@ class _PostalBarcodeAddressesState extends State<PostalBarcodeAddresses> {
               SizedBox(
                 height: 10,
               ),
-              AddressChooser(
-                mapController: mapController,
-              )
+              AddressChooser()
             ],
           ),
         ),
