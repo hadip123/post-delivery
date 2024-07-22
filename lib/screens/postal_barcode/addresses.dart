@@ -26,7 +26,8 @@ class _PostalBarcodeAddressesState extends State<PostalBarcodeAddresses> {
               SizedBox(
                 height: 10,
               ),
-              AddressChooser()
+              AddressChooser("آدرس مبدأ"),
+              AddressChooser("آدرس مقصد"),
             ],
           ),
         ),
