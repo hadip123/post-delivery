@@ -2,12 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:post_delivery/config/colors.dart';
 
 class AddressChooser extends StatelessWidget {
-  const AddressChooser({
+  const AddressChooser(this.title, {
     super.key,
+
   });
 
   // final TextEditingController controller;
   // final Location location;
+  final String title;
 
   @override
   Widget build(BuildContext context) {
@@ -21,8 +23,8 @@ class AddressChooser extends StatelessWidget {
                   borderSide: BorderSide.none,
                   borderRadius: BorderRadius.circular(kRoundness)),
               filled: true,
-              label: const Text(
-                'آدرس مبدآ',
+              label: Text(
+                title,
                 style: TextStyle(
                     color: Colors.indigo, fontWeight: FontWeight.bold),
               ),
