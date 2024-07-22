@@ -17,16 +17,21 @@ class _PostalBarcodeSuccessState extends State<PostalBarcodeSuccess> {
       child: Scaffold(
           body: SafeArea(
         child: Padding(
-          padding: EdgeInsets.all(kPagePadding),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Icon(Icons.verified, size: 50, color: kPrimary),
-              Text("موفقیت آمیز بود"),
-                TextButton(onPressed: () {
-          Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => Dashboard()))
-                }, child: Text("برگشتز"))
-            ],
+          padding: const EdgeInsets.all(kPagePadding),
+          child: Center(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                const Icon(Icons.verified, size: 100, color: kPrimary),
+                const Text("موفقیت آمیز بود"),
+                TextButton(
+                    onPressed: () {
+                      Navigator.pushReplacement(context,
+                          MaterialPageRoute(builder: (_) => const Dashboard()));
+                    },
+                    child: const Text("برگشت"))
+              ],
+            ),
           ),
         ),
       )),
