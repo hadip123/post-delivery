@@ -3,6 +3,7 @@ import 'package:post_delivery/components/postal_barcode/address_chooser.dart';
 import 'package:post_delivery/components/universal/top_bar.dart';
 import 'package:post_delivery/config/colors.dart';
 import 'package:post_delivery/config/images.dart';
+import 'package:post_delivery/screens/postal_barcode/success.dart';
 
 class PostalBarcodeAddresses extends StatefulWidget {
   const PostalBarcodeAddresses({super.key});
@@ -17,21 +18,35 @@ class _PostalBarcodeAddressesState extends State<PostalBarcodeAddresses> {
     return Directionality(
       textDirection: TextDirection.rtl,
       child: Scaffold(
-          body: SafeArea(
-        child: Padding(
-          padding: EdgeInsets.all(kPagePadding),
-          child: Column(
-            children: [
-              TopBar(iMap, 'مبدأ و مقصد'),
-              SizedBox(
-                height: 10,
-              ),
-              AddressChooser("آدرس مبدأ"),
-              AddressChooser("آدرس مقصد"),
-            ],
+          floatingActionButtonLocation: FloatingActionButtonLocation.startFloat,
+          floatingActionButton: FloatingActionButton(
+            elevation: 0,
+            onPressed: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (_) => const PostalBarcodeSuccess()));
+            },
+            child: const Icon(
+              Icons.done,
+              size: 40,
+            ),
           ),
-        ),
-      )),
+          body: SafeArea(
+            child: Padding(
+              padding: EdgeInsets.all(kPagePadding),
+              child: Column(
+                children: [
+                  TopBar(iMap, 'مبدأ و مقصد'),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  AddressChooser("آدرس مبدأ"),
+                  AddressChooser("آدرس مقصد"),
+                ],
+              ),
+            ),
+          )),
     );
   }
 }
