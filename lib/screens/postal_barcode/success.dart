@@ -25,7 +25,7 @@ class _PostalBarcodeSuccessState extends State<PostalBarcodeSuccess> {
               mainAxisSize: MainAxisSize.min,
               children: [
                 Spacer(),
-                Text("موفقیت آمیز بود",
+                Text("بارکد پستی شما",
                     style: Theme.of(context)
                         .textTheme
                         .titleLarge
