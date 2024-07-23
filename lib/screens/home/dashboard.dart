@@ -41,33 +41,36 @@ class _DashboardState extends State<Dashboard> {
   ];
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        body: SafeArea(
-            child: Padding(
-      padding: const EdgeInsets.all(kPagePadding),
-      child: Column(children: [
-        const Header(iDashboard, 'پیشخان'),
-        const CompanyCard(
-            avatar:
-                "https://img.freepik.com/premium-photo/3d-avatar-boy-character_914455-603.jpg",
-            title: 'رهپویان، دانش و اندیشه'),
-        const SizedBox(height: 15),
-        Expanded(
-          child: GridView.count(
-            mainAxisSpacing: 15,
-            crossAxisSpacing: 15,
-            crossAxisCount: 2,
-            children: items
-                .map((e) => DashboardItem(
-                    title: e['title'],
-                    icon: e['image'],
-                    id: e['id'],
-                    onTap: () => e['onTap'](context)))
-                .toList(),
+    return Directionality(
+      textDirection: TextDirection.rtl,
+      child: Scaffold(
+          body: SafeArea(
+              child: Padding(
+        padding: const EdgeInsets.all(kPagePadding),
+        child: Column(children: [
+          const Header(iDashboard, 'پیشخان'),
+          const CompanyCard(
+              avatar:
+                  "https://img.freepik.com/premium-photo/3d-avatar-boy-character_914455-603.jpg",
+              title: 'رهپویان، دانش و اندیشه'),
+          const SizedBox(height: 15),
+          Expanded(
+            child: GridView.count(
+              mainAxisSpacing: 15,
+              crossAxisSpacing: 15,
+              crossAxisCount: 2,
+              children: items
+                  .map((e) => DashboardItem(
+                      title: e['title'],
+                      icon: e['image'],
+                      id: e['id'],
+                      onTap: () => e['onTap'](context)))
+                  .toList(),
+            ),
           ),
-        ),
-        const Footer()
-      ]),
-    )));
+          const Footer()
+        ]),
+      ))),
+    );
   }
 }
